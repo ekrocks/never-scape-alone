@@ -78,6 +78,7 @@ public class NeverScapeAlonePanel extends PluginPanel {
 
     public JButton profile_player = new JButton();
     public JButton promote_party_leader = new JButton();;
+    public JButton set_party_role = new JButton();
     public JButton favorite = new JButton();;
     public JButton dislike_button = new JButton();;
     public JButton like_button = new JButton();;
@@ -564,7 +565,6 @@ public class NeverScapeAlonePanel extends PluginPanel {
                 like_button.setIcon(Icons.LIKE_ICON);
                 like_button.setToolTipText("Like " + player.getLogin());
                 like_button.setActionCommand(String.valueOf(player.getUserId()));
-                ;
                 like_button.addActionListener(e -> plugin.playerOptionAction(e, PlayerButtonOptionEnum.LIKE));
                 player_name_button_panel.add(like_button, pnbp);
                 pnbp.gridx += 1;
@@ -587,6 +587,27 @@ public class NeverScapeAlonePanel extends PluginPanel {
 
                 player_panel.add(player_name_button_panel, cp);
                 cp.gridy += 1;
+            }
+            
+            else{
+
+                JPanel player_name_button_panel = new JPanel();
+                player_name_button_panel.setBorder(new EmptyBorder(0, 0, 0, 0));
+                player_name_button_panel.setBackground(SUB_BACKGROUND_COLOR);
+                player_name_button_panel.setLayout(new GridBagLayout());
+                GridBagConstraints pnbp = new GridBagConstraints();
+                pnbp.anchor = GridBagConstraints.LINE_END;
+                pnbp.gridx = 0;
+                pnbp.gridy = 0;
+
+                JButton set_party_role = new JButton();
+                set_party_role.setIcon(Icons.ATTACK);
+                set_party_role.setToolTipText("Set Roles");
+                set_party_role.setActionCommand(String.valueOf(player.getUserId()));
+                set_party_role.addActionListener(e -> plugin.playerOptionAction(e, PlayerButtonOptionEnum.ROLES));
+                player_name_button_panel.add(set_party_role, pnbp);
+                pnbp.gridx += 1;
+
             }
             //////////////////// end player name button panel
 
